@@ -57,28 +57,12 @@ To install required packages, use the following:
 pip install -r requirements.txt
 ```
 
-#### `requirements.txt` should include:
-```
-tensorflow>=2.10
-Pillow
-scikit-learn
-opencv-python
-matplotlib
-# TensorFlow Object Detection API dependencies
-lxml
-Cython
-contextlib2
-pycocotools
-# Detectron2 (install via GitHub)
-# pip install 'git+https://github.com/facebookresearch/detectron2.git'
-```
-
 ---
 
 ### **📥 Download**
 To access the dataset and code, clone this repository:
 ```bash
-git clone https://github.com/yourusername/HD-Set.git
+git clone https://github.com/AamerAlAli/Disabilities-Dataset.git
 ```
 
 ---
@@ -87,11 +71,11 @@ git clone https://github.com/yourusername/HD-Set.git
 If you use this dataset in your research, please cite:
 ```bibtex
 @dataset{HD-Set2025,
-  author = {Your Name},
+  author = {Aamer Al Ali},
   title = {HD-Set: Human Disability 2D Image Dataset},
   year = {2025},
   publisher = {GitHub Repository},
-  url = {https://github.com/yourusername/HD-Set}
+  url = {https://github.com/AamerAlAli/Disabilities-Dataset}
 }
 ```
 
