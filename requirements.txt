@@ -1,0 +1,12 @@
+tensorflow>=2.10
+Pillow
+scikit-learn
+opencv-python
+matplotlib
+# TensorFlow Object Detection API dependencies
+lxml
+Cython
+contextlib2
+pycocotools
+# Detectron2 (install via GitHub)
+# pip install 'git+https://github.com/facebookresearch/detectron2.git'
