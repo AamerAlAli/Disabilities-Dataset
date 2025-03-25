@@ -3,6 +3,7 @@ Pillow
 scikit-learn
 opencv-python
 matplotlib
+ultralytics
 # TensorFlow Object Detection API dependencies
 lxml
 Cython
