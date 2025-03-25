@@ -2,17 +2,20 @@
 
 import os
 import argparse
-import tensorflow as tf
 from PIL import Image
+import tensorflow as tf
 
-# Optional imports for TF object detection models
+try:
+    from ultralytics import YOLO
+except ImportError:
+    print("Ultralytics YOLO not installed. Install with: pip install ultralytics")
+
 try:
     from object_detection.utils import config_util
     from object_detection.builders import model_builder
 except ImportError:
     print("Please install the TensorFlow Object Detection API.")
 
-# Detectron2 support
 try:
     import detectron2
     from detectron2.engine import DefaultTrainer
@@ -23,16 +26,6 @@ except ImportError:
 
 
 def resize_with_aspect_ratio(image, target_size):
-    """
-    Resize an image while maintaining aspect ratio.
-
-    Args:
-        image (PIL.Image): Input image.
-        target_size (int): Target size for the shorter side.
-
-    Returns:
-        PIL.Image: Resized image.
-    """
     width, height = image.size
     if width < height:
         new_width = target_size
@@ -43,12 +36,16 @@ def resize_with_aspect_ratio(image, target_size):
     return image.resize((new_width, new_height), Image.ANTIALIAS)
 
 
+def train_yolo11(model_path="yolov8n.yaml", data_path="data.yaml", epochs=100):
+    print("Training YOLOv11 model with Ultralytics...")
+    model = YOLO(model_path)
+    model.train(data=data_path, epochs=epochs)
+
+
 def load_tensorflow_model(model_name):
     print(f"Loading TensorFlow model: {model_name}")
 
-    if model_name.lower() == "centernet":
-        model_dir = "models/centernet"
-    elif model_name.lower() == "efficientdet":
+    if model_name.lower() == "efficientdet":
         model_dir = "models/efficientdet"
     elif model_name.lower() == "fasterrcnn":
         model_dir = "models/faster_rcnn"
@@ -85,12 +82,17 @@ def train_detectron_retinanet():
 def main():
     parser = argparse.ArgumentParser(description="Train detection models")
     parser.add_argument("--model", type=str, required=True,
-                        choices=["centernet", "efficientdet", "fasterrcnn", "ssd", "retinanet"],
+                        choices=["yolo11", "efficientdet", "fasterrcnn", "ssd", "retinanet"],
                         help="Model to train")
+    parser.add_argument("--yolo_config", type=str, default="yolov8n.yaml", help="YOLOv11 model config")
+    parser.add_argument("--yolo_data", type=str, default="data.yaml", help="YOLOv11 data.yaml path")
+    parser.add_argument("--epochs", type=int, default=100, help="Training epochs for YOLOv11")
     args = parser.parse_args()
 
     if args.model == "retinanet":
         train_detectron_retinanet()
+    elif args.model == "yolo11":
+        train_yolo11(args.yolo_config, args.yolo_data, args.epochs)
     else:
         train_tensorflow_model(args.model)
 
