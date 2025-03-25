@@ -42,8 +42,9 @@ The repository includes the following key scripts:
 - `data_prepare.py`: Resizes images while preserving aspect ratio and creates 10-fold cross-validation splits.
 - `test.py`: Runs inference using a trained detection model (TensorFlow or Detectron2 RetinaNet) on a single image.
 - `train.py`: Loads and trains various models including:
-  - TensorFlow-based: `CenterNet`, `EfficientDet`, `Faster R-CNN`, `SSD`
+  - TensorFlow-based: `EfficientDet`, `Faster R-CNN`, `SSD`
   - Detectron2-based: `RetinaNet`
+  - Ultralytics-based:  `Yolo11`
 - `crop_image.py`: Applies **center cropping** to all images in a given folder and saves the cropped outputs.
 
 Each script includes command-line arguments for flexibility and integration.
