@@ -63,7 +63,7 @@ pip install -r requirements.txt
 ### **📥 Download**
 To access the dataset and code, clone this repository:
 ```bash
-git clone https://github.com/AamerAlAli/Disabilities-Dataset.git
+git clone https://github.com/DisabilitesDataset/Disabilities-Dataset.git
 ```
 
 ---
