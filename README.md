@@ -76,7 +76,6 @@ If you use this dataset in your research, please cite:
   title = {HD-Set: Human Disability 2D Image Dataset},
   year = {2025},
   publisher = {GitHub Repository},
-  url = {https://github.com/AamerAlAli/Disabilities-Dataset}
 }
 ```
 
