@@ -72,7 +72,7 @@ git clone https://github.com/AamerAlAli/Disabilities-Dataset.git
 If you use this dataset in your research, please cite:
 ```bibtex
 @dataset{HD-Set2025,
-  author = {Aamer Al Ali},
+  author = {Ismail Hababeh},
   title = {HD-Set: Human Disability 2D Image Dataset},
   year = {2025},
   publisher = {GitHub Repository},
